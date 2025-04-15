@@ -35,7 +35,7 @@ jobs:
       - name: Install Emacs
         run: sudo apt -y install emacs-nox
       - name: Install TeXLive
-        run: sudo apt -y install texlive
+        run: sudo apt -y install texlive-full
       - name: Install LaTeX Make
         run: sudo apt -y install latexmk
       - name: Checkout
