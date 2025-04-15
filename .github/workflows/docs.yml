@@ -33,7 +33,7 @@ jobs:
       - name: Install Essential Build Tools
         run: sudo apt -y install build-essential
       - name: Install Emacs
-        run: sudo apt -y install emacs-nox11
+        run: sudo apt -y install emacs-nox
       - name: Install TeXLive
         run: sudo apt -y install texlive
       - name: Checkout
