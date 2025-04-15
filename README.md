@@ -10,3 +10,8 @@ Use it if you:
   command line arguments
 - need settings that simple scheduler and MPI command line arguments
   are unable to provide
+
+## Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) for a list of changes.
+
