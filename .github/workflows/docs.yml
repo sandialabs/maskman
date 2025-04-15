@@ -1,11 +1,15 @@
-# Build and deploying a Sphinx site to GitHub Pages
-name: Deploy Org Mode site to Pages
+# https://github.com/actions/starter-workflows/blob/main/pages/static.yml
+# https://github.com/actions/configure-pages
+# https://github.com/actions/checkout
+# https://github.com/actions/upload-pages-artifact
+# https://github.com/actions/deploy-pages
+name: Deploy to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
+    branches:
+      - main
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -18,7 +22,7 @@ permissions:
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 # Default to bash
 defaults:
@@ -26,9 +30,12 @@ defaults:
     shell: bash
 
 jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-24.04
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
       - name: Install Essential Build Tools
         run: sudo apt -y install build-essential
@@ -39,33 +46,23 @@ jobs:
       - name: Install LaTeX Make
         run: sudo apt -y install latexmk
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       - name: Build with Emacs/Org
         run: make clean doc install-doc
       - name: Gather artifacts A
         run: mkdir public
       - name: Gather artifacts B
-        run: cp -a doc/index.html public/
+        run: cp -r doc/index.html public/
       - name: Gather artifacts C
-        run: cp -a _install/share public/
+        run: cp -r _install/share public/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-24.04
-    needs: build
-    steps:
+          path: public/
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
