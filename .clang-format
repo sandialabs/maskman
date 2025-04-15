@@ -1,0 +1,6 @@
+BasedOnStyle: Microsoft
+BreakBeforeBraces: Allman
+UseTab: Never
+BraceWrapping:
+  AfterExternBlock: false
+IndentExternBlock: false

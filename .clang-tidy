@@ -1,0 +1,2 @@
+Checks: 'clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,-clang-analyzer-security.insecureAPI.strcpy'
+# Checks: 'clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,-clang-analyzer-core.uninitialized.Assign,-clang-analyzer-optin.portability.UnixAPI'

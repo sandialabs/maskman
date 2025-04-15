@@ -1,0 +1,4320 @@
+{
+   spmd1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:ompi_op_base_op_select
+   fun:ompi_op_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd2
+   Memcheck:Param
+   writev(vector[1])
+   fun:writev
+   fun:pmix_ptl_base_send_handler
+   fun:event_persist_closure
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:progress_engine
+   fun:start_thread
+   fun:clone
+}
+{
+   spmd3
+   Memcheck:Param
+   socketcall.getsockopt(optlen)
+   fun:getsockopt
+   fun:pmix_ptl_base_set_timeout
+   fun:pmix_ptl_base_make_connection
+   fun:connect_to_peer
+   fun:PMIx_Init
+   fun:ext3x_client_init
+   fun:rte_init
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:mca_mpool_hugepage_open
+   fun:mca_base_framework_components_open
+   fun:mca_mpool_base_open
+   fun:mca_base_framework_open
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd5
+   Memcheck:Param
+   socketcall.getsockopt(optlen_out)
+   fun:getsockopt
+   fun:pmix_ptl_base_set_timeout
+   fun:pmix_ptl_base_make_connection
+   fun:connect_to_peer
+   fun:PMIx_Init
+   fun:ext3x_client_init
+   fun:rte_init
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:PMIx_Get_nb
+   fun:PMIx_Get
+   fun:ext3x_get
+   fun:ompi_proc_complete_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd7
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   fun:opal_argv_append_nosize
+   fun:opal_argv_append
+   fun:opal_argv_split_inter
+   fun:split_and_resolve
+   fun:mca_btl_tcp_component_init
+   fun:mca_btl_base_select
+   fun:mca_bml_r2_component_init
+   fun:mca_bml_base_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+}
+{
+   spmd8
+   Memcheck:Param
+   writev(vector[1])
+   fun:writev
+   fun:pmix_ptl_base_send_handler
+   fun:event_persist_closure
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:progress_engine
+   fun:start_thread
+   fun:clone
+}
+{
+   spmd9
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:avx_component_op_query
+   fun:ompi_op_base_op_select
+   fun:ompi_op_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd10
+   Memcheck:Param
+   setsockopt(optlen)
+   fun:setsockopt
+   fun:pmix_ptl_base_make_connection
+   fun:connect_to_peer
+   fun:PMIx_Init
+   fun:ext3x_client_init
+   fun:rte_init
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd11
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:PMIx_Get_nb
+   fun:PMIx_Get
+   fun:ext3x_get
+   fun:ompi_proc_complete_init_single
+   fun:ompi_proc_complete_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd12
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:vasprintf
+   fun:asprintf
+   fun:mca_base_component_to_string
+   fun:mca_pml_base_pml_check_selected_impl
+   fun:mca_pml_ob1_add_procs
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd13
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_rmaps_base_print_mapping
+   fun:orte_pmix_server_register_nspace
+   fun:orte_odls_base_default_construct_child_list
+   fun:orte_odls_default_launch_local_procs
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd14
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:assign
+   fun:orte_rtc_base_assign
+   fun:orte_odls_base_default_construct_child_list
+   fun:orte_odls_default_launch_local_procs
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd15
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_set_attribute
+   fun:orte_rmaps_rr_byobj
+   fun:orte_rmaps_rr_map
+   fun:orte_rmaps_base_map_job
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd16
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_rmaps_base_setup_proc
+   fun:orte_rmaps_rr_byobj
+   fun:orte_rmaps_rr_map
+   fun:orte_rmaps_base_map_job
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd17
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_dss_buffer_extend
+   fun:opal_dss_pack_int32
+   fun:opal_dss_pack
+   fun:orte_pmix_server_register_nspace
+   fun:orte_odls_base_default_construct_child_list
+   fun:orte_odls_default_launch_local_procs
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd18
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_dss_buffer_extend
+   fun:opal_dss_pack_int32
+   fun:opal_dss_pack
+   fun:orte_pmix_server_register_nspace
+   fun:orte_odls_base_default_construct_child_list
+   fun:orte_odls_default_launch_local_procs
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd19
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   fun:pmix_bfrops_base_value_load
+   fun:PMIx_server_init
+   fun:ext3x_server_init
+   fun:pmix_server_init
+   fun:rte_init
+   fun:orte_init
+   fun:orte_submit_init
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd20
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:PMIx_server_init
+   fun:ext3x_server_init
+   fun:pmix_server_init
+   fun:rte_init
+   fun:orte_init
+   fun:orte_submit_init
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd21
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_hwloc_base_get_npus
+   fun:orte_rmaps_rr_byobj
+   fun:orte_rmaps_rr_map
+   fun:orte_rmaps_base_map_job
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   spmd22
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:PMIx_Get_nb
+   fun:PMIx_Get
+   fun:ext3x_get
+   fun:rte_init
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd23
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:PMIx_Get_nb
+   fun:PMIx_Get
+   fun:ext3x_get
+   fun:rte_init
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   spmd24
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_iof_base_write_output
+   fun:orte_iof_hnp_read_local_handler
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   mpmd1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   fun:opal_argv_append_nosize
+   fun:opal_argv_append
+   fun:orte_submit_job
+   fun:orterun
+   fun:(below main)
+}
+{
+   xpmd1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_set_attribute
+   fun:bind_in_place.constprop.0
+   fun:orte_rmaps_base_compute_bindings
+   fun:orte_odls_base_default_construct_child_list
+   fun:orte_odls_default_launch_local_procs
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   xpmd2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_hwloc_base_get_npus
+   fun:orte_rmaps_rr_assign_byobj
+   fun:orte_rmaps_rr_assign_locations
+   fun:orte_rmaps_base_assign_locations
+   fun:orte_rmaps_base_map_job
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   xpmd3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:show_help
+   fun:orte_show_help_norender
+   fun:orte_show_help
+   fun:orte_print_aborted_job
+   fun:orte_quit
+   fun:event_process_active_single_queue
+   fun:event_process_active
+   fun:event_base_loop
+   fun:orterun
+   fun:(below main)
+}
+{
+   ubuntu1aa
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ab
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__vasprintf_internal
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ac
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ad
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ae
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1af
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ag
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_hwloc_base_get_npus
+   obj:*
+   obj:*
+   fun:orte_rmaps_base_map_job
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ah
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_rmaps_base_print_mapping
+   fun:orte_pmix_server_register_nspace
+   fun:orte_odls_base_default_construct_child_list
+   obj:*
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ai
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu1aj
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ak
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1al
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:orte_plm_base_post_launch
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1am
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1an
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3
+   fun:orte_show_help_norender
+   fun:orte_show_help
+   fun:orte_print_aborted_job
+   fun:orte_quit
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ao
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ap
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1aq
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:orte_rtc_base_assign
+   fun:orte_odls_base_default_construct_child_list
+   obj:*
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ar
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_state_base_activate_job_state
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1as
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_dss_buffer_extend
+   fun:opal_dss_pack_int32
+   fun:opal_dss_pack
+   fun:orte_pmix_server_register_nspace
+   fun:orte_odls_base_default_construct_child_list
+   obj:*
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1at
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_dss_buffer_extend
+   fun:opal_dss_pack_int32
+   fun:opal_dss_pack
+   fun:orte_pmix_server_register_nspace
+   fun:orte_odls_base_default_construct_child_list
+   obj:*
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1au
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1av
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1aw
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu1ax
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:ompi_op_base_op_select
+   fun:ompi_op_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu1ay
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:ompi_op_base_op_select
+   fun:ompi_op_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu1az
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:ompi_op_base_op_select
+   fun:ompi_op_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu1ba
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:ompi_op_base_op_select
+   fun:ompi_op_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu1bb
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu1bc
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu1bd
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2aa
+   Memcheck:Param
+   writev(vector[1])
+   fun:__writev
+   fun:writev
+   fun:pmix_ptl_base_send_handler
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/lib/x86_64-linux-gnu/pmix2/lib/libpmix.so.2.13.1
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2ab
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   obj:*
+   fun:mca_base_framework_components_register
+   fun:mca_base_framework_register
+   fun:mca_base_framework_open
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2ac
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   fun:opal_argv_append_nosize
+   fun:opal_argv_append
+   obj:/usr/lib/x86_64-linux-gnu/libopen-pal.so.40.30.3
+   obj:*
+   obj:*
+   fun:mca_btl_base_select
+   obj:*
+   fun:mca_bml_base_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2ad
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_finalize
+   fun:ompi_mpi_finalize
+   fun:main
+}
+{
+   ubuntu2ae
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__vasprintf_internal
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2af
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen_implementation
+   fun:dlopen@@GLIBC_2.34
+   obj:/usr/lib/x86_64-linux-gnu/libopen-pal.so.40.30.3
+   fun:mca_base_component_repository_open
+   fun:mca_base_component_find
+   fun:mca_base_framework_components_register
+   fun:mca_base_framework_register
+   fun:mca_base_framework_open
+   obj:*
+   fun:mca_base_framework_components_open
+   obj:/usr/lib/x86_64-linux-gnu/libmpi.so.40.30.6
+   fun:mca_base_framework_open
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2ag
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__vasprintf_internal
+   fun:__asprintf_chk
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_finalize
+   fun:ompi_mpi_finalize
+   fun:main
+}
+{
+   ubuntu2ah
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__vasprintf_internal
+   fun:__asprintf_chk
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_finalize
+   fun:ompi_mpi_finalize
+   fun:main
+}
+{
+   ubuntu2ai
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_finalize
+   fun:ompi_mpi_finalize
+   fun:main
+}
+{
+   ubuntu2aj
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen_implementation
+   fun:dlopen@@GLIBC_2.34
+   obj:/usr/lib/x86_64-linux-gnu/libopen-pal.so.40.30.3
+   fun:mca_base_component_repository_open
+   fun:mca_base_component_find
+   fun:mca_base_framework_components_register
+   fun:mca_base_framework_register
+   fun:mca_base_framework_open
+   obj:*
+   fun:mca_base_framework_components_open
+   obj:/usr/lib/x86_64-linux-gnu/libmpi.so.40.30.6
+   fun:mca_base_framework_open
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2ak
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2al
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2am
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:strdup
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2an
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2ao
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2ap
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2aq
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu2ar
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2as
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu2at
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   ubuntu3aa
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:__vasprintf_internal
+   fun:__asprintf_chk
+   fun:mca_base_component_to_string
+   obj:/usr/lib/x86_64-linux-gnu/libmpi.so.40.30.6
+   obj:*
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu3ab
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_set_attribute
+   obj:/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3
+   fun:orte_rmaps_base_compute_bindings
+   fun:orte_odls_base_default_construct_child_list
+   obj:*
+   fun:orte_daemon_recv
+   fun:orte_rml_base_process_msg
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu3ac
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3
+   obj:*
+   fun:orte_plm_base_post_launch
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu3ad
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu3ae
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_set_attribute
+   obj:*
+   obj:*
+   fun:orte_rmaps_base_map_job
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4aa
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4ab
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:opal_hwloc_base_get_npus
+   obj:*
+   obj:*
+   fun:orte_rmaps_base_assign_locations
+   fun:orte_rmaps_base_map_job
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4ac
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   fun:opal_argv_append_nosize
+   fun:opal_argv_append
+   fun:orte_submit_job
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4ad
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4ae
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3
+   fun:orte_show_help_norender
+   fun:orte_show_help
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4ag
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubuntu4ah
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu4ai
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}
+{
+   ubuntu4aj
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_iof_base_write_output
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom001
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom002
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom003
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom004
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom005
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom006
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom007
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom008
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom009
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom010
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom011
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom012
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom013
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom014
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom015
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom016
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom017
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom018
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom019
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom020
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom021
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom022
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom023
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom024
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom025
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom026
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom027
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom028
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom029
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom030
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom031
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom032
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom033
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom034
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom035
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom036
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom037
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom038
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom039
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom040
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom041
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom042
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom043
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom044
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom045
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom046
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom047
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom048
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom049
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom050
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom051
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom052
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom053
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_reconnect
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom054
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom055
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom056
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom057
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom058
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom059
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom060
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom061
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom062
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom063
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom064
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom065
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom066
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom067
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom068
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom069
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom070
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom071
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom072
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom073
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom074
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom075
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom076
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom077
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom078
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom079
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_reconnect
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom080
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom081
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom082
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom083
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom084
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom085
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom086
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom087
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom088
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   fun:hwloc__insert_object_by_cpuset
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom089
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom090
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom091
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom092
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom093
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom094
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   fun:hwloc__insert_object_by_cpuset
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom095
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom096
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom097
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   fun:hwloc__insert_object_by_cpuset
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom098
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom099
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom100
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom101
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom102
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   fun:hwloc_pcidisc_tree_attach
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom103
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_reconnect
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom104
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_reconnect
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom105
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_reconnect
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom106
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_reconnect
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom107
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom108
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   fun:hwloc__insert_object_by_cpuset
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom109
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom110
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom111
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom112
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom113
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom114
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom115
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom116
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom117
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom118
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom119
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom120
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom121
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   fun:hwloc_pcidisc_tree_attach
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom122
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom123
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom124
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom125
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom126
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom127
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom128
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_alloc
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom129
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom130
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom131
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom132
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom133
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_bitmap_dup
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   fun:pmix_server_init
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom134
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:orte_rmaps_base_setup_proc
+   obj:*
+   obj:*
+   fun:orte_rmaps_base_map_job
+   obj:/usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+   fun:event_base_loop
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom135
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:opal_pointer_array_init
+   obj:/usr/lib/x86_64-linux-gnu/libopen-rte.so.40.30.3
+   obj:*
+   fun:orte_init
+   fun:orte_submit_init
+   obj:/usr/bin/orterun
+   fun:(below main)
+}
+{
+   ubunturandom136
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:hwloc_alloc_setup_object
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   obj:/usr/lib/x86_64-linux-gnu/libhwloc.so.15.7.0
+   fun:hwloc_topology_load
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:orte_init
+   fun:ompi_mpi_init
+   fun:PMPI_Init
+   fun:main
+}

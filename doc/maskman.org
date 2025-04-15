@@ -1,0 +1,286 @@
+#+TITLE: Maskman Manual
+#+AUTHOR: Anthony M. Agelastos, Douglas M. Pase
+#+EMAIL: amagela@sandia.gov, dmpase@sandia.gov
+#+DESCRIPTION: This Manual is to facilitate the use and development of the Maskman mask creation utility.
+#+LANGUAGE: en
+#+SELECT_TAGS: affinity mask HPC
+#+OPTIONS: ^:nil
+#+OPTIONS: toc:nil
+#+LATEX_COMPILER: lualatex
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [letterpaper,12pt]
+#+LATEX_HEADER: \input{preamble}
+
+
+This application facilitates manual mask generation for a wide range of
+activities (e.g., setting affinity). 
+
+Sandia National Laboratories is a multimission laboratory managed and operated
+by National Technology & Engineering Solutions of Sandia, LLC, a wholly owned
+subsidiary of Honeywell International Inc., for the U.S. Department of Energy's
+National Nuclear Security Administration under contract DE-NA0003525.
+
+#+TOC: headlines N
+
+
+* Usage
+
+This application provides *methods* for requesting a list of
+masks. Each method has its own options and behavior. In general,
+invoking Maskman will resemble the following.
+
+#+BEGIN_SRC shell
+  $ maskman [global options] \
+            [input method] [input options] \
+            [output method] [output options]
+#+END_SRC
+
+The supported *methods* and their options are described below.
+
+** Global Options
+
+The following options do not directly map to any input or output
+*method*.
+
+- =-v= or =--verbose= :: This increases verbosity. On POSIX systems,
+  the extra information printed should all go to STDERR for easy
+  separation with the desired output.
+
+
+** Input Method =luiscli=
+
+This *method* enables users to specify Lists of Unsigned Integers
+Simply through a compact syntax. Its usage is below.
+
+#+BEGIN_SRC shell
+  $ maskman luiscli [luisstring]
+#+END_SRC
+
+where
+
+- =luisstring= :: This string allows users to specify a list of lists;
+  see [[*LUIS Description][LUIS Description]] for more information.
+
+If =luiscli= is the only input *method*, then it does not need to be
+given on the command line, i.e., =maskman luiscli [luisstring]= is the
+same as =maskman [luisstring]=.
+
+
+*** LUIS Description
+
+This compact notation allows the users to specify a list of lists
+containing unsigned integers. The following characters have meaning in
+a LUIS string.
+
+- =;= :: This separates the outer lists.
+- =:= :: This allows the user to specify an inclusive range of values
+  via =start:stop:increment=. If only a single =:= is used, the
+  increment is assumed to be 1. For example, =2:5=, which is the same
+  as =2:5:1=, would expand to 2, 3, 4, and 5. However, =2:5:2= would
+  expand to 2 and 4 since 6 would be beyond 5.
+
+Numbers can also be individually listed and separated with any
+non-numeric character that also excludes the aforementioned
+characters; the author recommends =,= for this.
+
+So, to put it all together, if a user wanted to create 2 masks where
+the first one has 1 through 4 while the second had 5, 7, 9, 11, and
+42, then they could use the following example.
+
+#+BEGIN_SRC shell
+  $ maskman luiscli "1:4;5:11:2,42"
+#+END_SRC
+
+
+** Output Method =simplestdout=
+
+This output method simply prints things to STDOUT.  If =simplestdout=
+is the only input *method*, then it does not need to be specified on
+the command line.
+
+
+** HPC Slurm Example
+
+This example will use *Maskman* to manually set the affinity for each
+MPI task via the Slurm MPI wrapper. First, install *Maskman* and the
+[[https://git.ecdf.ed.ac.uk/dmckain/xthi][xthi]] utility. Then, get an interactive allocation. Once that is done,
+execute *xthi* without specifying anything to see what it provides; an
+example is below; some output is tweaked for documentation formatting.
+
+#+BEGIN_SRC shell
+  $ export OMP_NUM_THREADS=2
+  $ srun --ntasks=2 xthi
+  MPI Rank=0 OMP Thread=0  CPU=167  NUMA Node=3  CPU Affinity=  0-55,112-167
+  MPI Rank=0 OMP Thread=1  CPU=154  NUMA Node=3  CPU Affinity=  0-55,112-167
+  MPI Rank=1 OMP Thread=0  CPU=223  NUMA Node=7  CPU Affinity=56-111,168-223
+  MPI Rank=1 OMP Thread=1  CPU=210  NUMA Node=7  CPU Affinity=56-111,168-223
+#+END_SRC
+
+Now, let's add *Maskman* and set the affinity for the first rank and
+its spawned threads to the CPU range 14-15 (i.e., individual physical
+cores within NUMA domain 1 of processor 0) and the second atop 70-71
+(i.e., individual physical cores within NUMA domain 1 of processor 1).
+
+#+BEGIN_SRC shell
+  $ export MASKMAN=`maskman "14:15;70:71"`
+  $ export OMP_NUM_THREADS=2
+  $ echo ${MASKMAN}
+  0xc000,0xc00000000000000000
+  $ srun --ntasks=2 --cpu-bind=verbose,mask_cpu:${MASKMAN} xthi
+  cpu-bind=MASK - foo, task  0  0 [92660]: mask 0xc000 set
+  cpu-bind=MASK - foo, task  1  1 [92661]: mask 0xc00000000000000000 set
+  MPI Rank=0 OMP Thread=0  CPU=15  NUMA Node=1  CPU Affinity=14,15
+  MPI Rank=0 OMP Thread=1  CPU=14  NUMA Node=1  CPU Affinity=14,15
+  MPI Rank=1 OMP Thread=0  CPU=71  NUMA Node=5  CPU Affinity=70,71
+  MPI Rank=1 OMP Thread=1  CPU=71  NUMA Node=5  CPU Affinity=70,71
+#+END_SRC
+
+*Maskman* successfully provided the range of CPUs desired for each MPI
+rank. One issue, though, is that OpenMP thread 1 under MPI rank 1
+shared the same CPU with OpenMP thread 0. Something is not behaving
+optimally. So, I can further limit the mask with some OpenMP runtime
+environment variables, e.g., =OMP_PLACES=.
+
+#+BEGIN_SRC shell
+  $ export MASKMAN=`maskman "14:15;70:71"`
+  $ export OMP_NUM_THREADS=2
+  $ export OMP_PLACES=cores
+  $ echo ${MASKMAN}
+  0xc000,0xc00000000000000000
+  $ srun --ntasks=2 --cpu-bind=verbose,mask_cpu:${MASKMAN} xthi
+  cpu-bind=MASK - foo, task  0  0 [93626]: mask 0xc000 set
+  cpu-bind=MASK - foo, task  1  1 [93627]: mask 0xc00000000000000000 set
+  MPI Rank=0 OMP Thread=0  CPU=14  NUMA Node=1  CPU Affinity=14
+  MPI Rank=0 OMP Thread=1  CPU=15  NUMA Node=1  CPU Affinity=15
+  MPI Rank=1 OMP Thread=0  CPU=70  NUMA Node=5  CPU Affinity=70
+  MPI Rank=1 OMP Thread=1  CPU=71  NUMA Node=5  CPU Affinity=71
+#+END_SRC
+
+So, in this example, Slurm set a mask where each MPI rank has 2 CPUs
+it can spawn processes within and then OpenMP further reduced the mask
+to a single CPU. This particular compute node has 2 processors that
+each have 4 NUMA domains with 14 physical cores, each with 2
+threads. Let's put 2 ranks per NUMA domain with 7 OpenMP threads per
+rank and ensure they only use the first thread if possible (the
+secondary threads are CPUs above 112). Let's also skip CPU 0 and 56 in
+case there are other processes pinned to them (i.e., 112 in place of 0
+and 168 in place of 56).
+
+#+BEGIN_SRC shell
+  $ export MASKMAN=`maskman "  112,1:6;  7:13;  14:20;   21:27; \
+                                 28:34; 35:41;  42:48;   49:55; \
+                             168,57:62; 63:69;  70:76;   77:83; \
+                                 84:90; 91:97; 98:104; 105:111; "`
+  $ export OMP_NUM_THREADS=7
+  $ export OMP_PLACES=cores
+  $ srun --ntasks=16 --cpu-bind=verbose,mask_cpu:${MASKMAN} xthi
+  ...task  0  0 ...mask 0x1000000000000000000000000007e set
+  ...task  1  1 ...mask 0x3f80 set
+  ...task  2  2 ...mask 0x1fc000 set
+  ...task  3  3 ...mask 0xfe00000 set
+  ...task  4  4 ...mask 0x7f0000000 set
+  ...task  5  5 ...mask 0x3f800000000 set
+  ...task  6  6 ...mask 0x1fc0000000000 set
+  ...task  7  7 ...mask 0xfe000000000000 set
+  ...task  8  8 ...mask 0x1000000000000000000000000007e00000000000000 set
+  ...task  9  9 ...mask 0x3f8000000000000000 set
+  ...task 10 10 ...mask 0x1fc00000000000000000 set
+  ...task 11 11 ...mask 0xfe0000000000000000000 set
+  ...task 12 12 ...mask 0x7f000000000000000000000 set
+  ...task 13 13 ...mask 0x3f80000000000000000000000 set
+  ...task 14 14 ...mask 0x1fc000000000000000000000000 set
+  ...task 15 15 ...mask 0xfe00000000000000000000000000 set
+  MPI Rank= 0 OMP Thread=0  CPU=112  NUMA Node=0  CPU Affinity=112
+  MPI Rank= 0 OMP Thread=1  CPU=  1  NUMA Node=0  CPU Affinity=  1
+  MPI Rank= 0 OMP Thread=2  CPU=  2  NUMA Node=0  CPU Affinity=  2
+  ...
+  MPI Rank= 7 OMP Thread=6  CPU= 55  NUMA Node=3  CPU Affinity= 55
+  MPI Rank= 8 OMP Thread=0  CPU=168  NUMA Node=4  CPU Affinity=168
+  MPI Rank= 8 OMP Thread=1  CPU= 57  NUMA Node=4  CPU Affinity= 57
+  ...
+  MPI Rank=15 OMP Thread=5  CPU=110  NUMA Node=7  CPU Affinity=110
+  MPI Rank=15 OMP Thread=6  CPU=111  NUMA Node=7  CPU Affinity=111
+#+END_SRC
+
+The closest this configuration could be created with "standard" Slurm
+commands is shown below. Please note that results may vary with
+different Slurm configurations.
+
+#+BEGIN_SRC shell
+  $ export OMP_NUM_THREADS=7
+  $ export OMP_PLACES=cores
+  $ srun --nodes=1 --ntasks=16 --cpus-per-task=7 \
+    --distribution=block:block --hint=nomultithread xthi
+  MPI Rank= 0 OMP Thread=0  CPU=  0  NUMA Node=0  CPU Affinity=  0
+  MPI Rank= 0 OMP Thread=1  CPU=  1  NUMA Node=0  CPU Affinity=  1
+  MPI Rank= 0 OMP Thread=2  CPU=  2  NUMA Node=0  CPU Affinity=  2
+  ...
+  MPI Rank=15 OMP Thread=4  CPU=109  NUMA Node=7  CPU Affinity=109
+  MPI Rank=15 OMP Thread=5  CPU=110  NUMA Node=7  CPU Affinity=110
+  MPI Rank=15 OMP Thread=6  CPU=111  NUMA Node=7  CPU Affinity=111
+#+END_SRC
+
+
+* Development
+
+This program was written to be easy to build and develop within. These
+features are listed below.
+
+1. It was architected to facilitate the easy inclusion of additional,
+   future input and output methods.
+2. It is written in [[https://en.wikipedia.org/wiki/C11_(C_standard_revision)][C11]]. This is extremely portable and /should/
+   successfully build with all known C compilers atop all known
+   architectures.
+3. It leverages the [[https://cmake.org/][Kitware CMake]] build system.
+4. Automation, including CI/CD, is facilitated with the top-level [[https://www.gnu.org/software/make/][GNU
+   Make]] Makefile.
+5. Its documentation is written in [[https://orgmode.org/][Org Mode]]. This facilitated rapid
+   documentation generation visible within Forge previewers in
+   addition to robust exporting to HTML, Unix Manual, and PDF, all
+   through the installation of a single cross-platform utility (i.e.,
+   [[https://www.gnu.org/software/emacs/][GNU Emacs]]); PDF exporting would also require a [[https://www.latex-project.org/][LaTeX]] installation.
+6. Its source code has formatting requirements enforced by
+   [[https://clang.llvm.org/docs/ClangFormat.html][ClangFormat]].
+7. Its logging adheres to the [[https://brandur.org/logfmt][logfmt]] style.
+
+
+** Building
+
+
+*** Application
+
+This application only requires a C11 compiler and a semi-recent
+version of CMake to build. Standard CMake conventions are followed and
+can be used. See the [[*Automation][Automation]] section for additional information.
+
+
+*** Documentation
+
+This projects supports writing out documentation in quite a few
+formats. The environment requires GNU Emacs and LaTeX generation
+capabilities. The CMake build system can be configured to build the
+documentation by setting =-DMaskman_Documentation:BOOL=ON=. If only
+the documentation is desired to be built, then the application build
+can be turned off via =-DMaskman_Application:BOOL=OFF=.
+
+
+*** Automation
+
+There is a top-level GNU Make Makefile (named =Makefile=) that has
+targets to facilitate the easy building of *Maskman* and its
+artifacts. Some examples are provided below. These will typically put
+their artifacts within appropriately named folders within the source
+code tree that begin with an underscore. The CI/CD automation file(s)
+(e.g., =.gitlab-ci.yml=) should contain examples of how to leverage
+this for every task.
+
+#+BEGIN_SRC shell
+  # clean out old build and installation artifacts
+  $ make clean
+
+  # perform a typical build utilizing CC for compiler
+  $ make app
+
+  # install the application and files into an easy to grok folder structure
+  $ make install
+#+END_SRC

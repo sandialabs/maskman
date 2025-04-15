@@ -1,0 +1,4 @@
+leak:pthread_create.c
+leak:strdup
+leak:vasprintf.c
+leak:asan_thread_start

@@ -1,0 +1,49 @@
+% #+LATEX_HEADER: \RequirePackage[margin=1.25in]{geometry}
+% #+LATEX_HEADER: \RequirePackage[htt]{hyphenat}
+% # This enables appropriate hyphenation with the XML extension _and_ double colons
+% #+LATEX_HEADER: \RequirePackage{luacode}
+% #+LATEX_HEADER: \begin{luacode}
+% #+LATEX_HEADER: function double_colon ( s )
+% #+LATEX_HEADER:   s = string.gsub ( s, "::" , "::\\-" )
+% #+LATEX_HEADER:   return s
+% #+LATEX_HEADER: end
+% #+LATEX_HEADER: function hyphenate_xml ( s )
+% #+LATEX_HEADER:   s = string.gsub ( s, ".xml" , "\\-.xml" )
+% #+LATEX_HEADER:   return s
+% #+LATEX_HEADER: end
+% #+LATEX_HEADER: \end{luacode}
+% #+LATEX_HEADER: \AtBeginDocument{%
+% #+LATEX_HEADER:   \directlua{luatexbase.add_to_callback ( 
+% #+LATEX_HEADER:     "process_input_buffer", double_colon, "double_colon" )}
+% #+LATEX_HEADER:   \directlua{luatexbase.add_to_callback ( 
+% #+LATEX_HEADER:     "process_input_buffer", hyphenate_xml, "hyphenate_xml" )}}
+% # This enables script blocks to have small text
+% # #+LATEX_HEADER: \RequirePackage{fancyvrb}
+% # #+LATEX_HEADER: \DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\scriptsize}
+
+\RequirePackage[margin=1.25in]{geometry}
+\RequirePackage[htt]{hyphenat}
+
+% This enables appropriate hyphenation with the XML extension _and_ double colons
+\RequirePackage{luacode}
+\begin{luacode}
+function double_colon ( s )
+  s = string.gsub ( s, "::" , "::\\-" )
+  return s
+end
+function hyphenate_xml ( s )
+  s = string.gsub ( s, ".xml" , "\\-.xml" )
+  return s
+end
+\end{luacode}
+\AtBeginDocument{%
+  \directlua{luatexbase.add_to_callback ( 
+    "process_input_buffer", double_colon, "double_colon" )}
+  \directlua{luatexbase.add_to_callback ( 
+    "process_input_buffer", hyphenate_xml, "hyphenate_xml" )}}
+
+% This enables script blocks to have small text
+\RequirePackage{fancyvrb}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\small,frame=single,numbers=left}
+
+\RequirePackage{hyperref}
