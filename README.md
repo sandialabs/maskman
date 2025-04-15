@@ -13,6 +13,7 @@ Use it if you:
 
 ## Documentation
 
+- [User Manual Rendered in HTML/PDF](https://sandialabs.github.io/maskman)
 - [User Manual with Forge Org Rendering](doc/maskman.org)
 
 ## Changelog
