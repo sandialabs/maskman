@@ -11,6 +11,10 @@ Use it if you:
 - need settings that simple scheduler and MPI command line arguments
   are unable to provide
 
+## Documentation
+
+- [User Manual with Forge Org Rendering](doc/maskman.org)
+
 ## Changelog
 
 See the [CHANGELOG.md](CHANGELOG.md) for a list of changes.
