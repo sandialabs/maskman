@@ -36,6 +36,8 @@ jobs:
         run: sudo apt -y install emacs-nox
       - name: Install TeXLive
         run: sudo apt -y install texlive
+      - name: Install LaTeX Make
+        run: sudo apt -y install latexmk
       - name: Checkout
         uses: actions/checkout@v3
         with:
