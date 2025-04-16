@@ -14,7 +14,7 @@ defaults:
     shell: bash
 jobs:
   build:
-    runs-on: registry.access.redhat.com/ubi8/ubi:latest
+    runs-on: registry.access.redhat.com/ubi8/ubi-latest
     steps:
       - name: Install Build Tools
         run: |
