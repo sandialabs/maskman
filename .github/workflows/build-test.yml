@@ -1,6 +1,13 @@
 # https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
 name: build-test-deploy 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 # Default to bash
 defaults:
   run:
