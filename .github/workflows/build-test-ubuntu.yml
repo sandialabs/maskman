@@ -1,5 +1,5 @@
 # https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
-name: build-test-deploy 
+name: build-test-ubuntu
 on:
   push:
     branches:

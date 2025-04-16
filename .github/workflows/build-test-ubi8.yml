@@ -1,0 +1,25 @@
+# https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
+name: build-test-ubi8
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+jobs:
+  build:
+    runs-on: registry.access.redhat.com/ubi8/ubi:latest
+    steps:
+      - name: Install Build Tools
+        run: |
+          dnf install -y git gcc make cmake clang
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Build | GNU
+        run: CC=gcc make clean genmake-app test-app install-app
