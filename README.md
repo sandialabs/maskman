@@ -1,6 +1,8 @@
 # Maskman
 
-![Maskman Logo](./art/avatar.png)
+<p align="center">
+  <img src="./art/avatar.png" alt="Maskman Logo">
+</p>
 
 Maskman is a utility for generating hex masks. Its initial development
 was targeted at masks to help set affinity within applications through
