@@ -1,5 +1,5 @@
 # https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
-name: build-test-ubi8
+name: build-test-ubi9
 on:
   push:
     branches:
@@ -14,7 +14,7 @@ defaults:
     shell: bash
 jobs:
   build:
-    runs-on: registry.access.redhat.com/ubi8/ubi-latest
+    runs-on: registry.access.redhat.com/ubi9/ubi:latest
     steps:
       - name: Install Build Tools
         run: |
