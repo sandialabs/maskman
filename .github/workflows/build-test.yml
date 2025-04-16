@@ -1,0 +1,31 @@
+# https://resources.github.com/learn/pathways/automation/essentials/application-testing-with-github-actions/
+name: build-test-deploy 
+on: push
+# Default to bash
+defaults:
+  run:
+    shell: bash
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Install Build Tools
+        run: sudo apt -y install build-essential coreutils moreutils findutils cmake make ninja-build gcc gcovr clang clang-tidy clang-format clangd clang-tools llvm valgrind tree bash bash-completion less cflow musl musl-tools
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Build | GNU Warning
+        run: CC=gcc make clean genninja-warning test-warning
+      - name: Build | Clang Warning
+        run: CC=clang make clean genninja-warning test-warning
+      - name: Check | Line Coverage
+        run: CC=gcc APP_GCOV=gcov APP_GCOVR=/usr/bin/gcovr make clean genninja-gnu-coverage test-gnu-coverage report-gnu-coverage
+      - name: Check | Valgrind
+        run: CC=gcc make clean genmake-valgrind test-valgrind
+      - name: Check | GNU ASAN
+        run: CC=gcc make clean genmake-gnu-address-sanitizer test-gnu-address-sanitizer
+      - name: Check | Clang ASAN
+        run: CC=clang make clean genmake-clang-address-sanitizer test-clang-address-sanitizer
+      - name: Check | Clang Tidy
+        run: CC=clang make clean genmake-clang-tidy test-clang-tidy
+      - name: Check | Clang Format
+        run: make clean clang-format-check
